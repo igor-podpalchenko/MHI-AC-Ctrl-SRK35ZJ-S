@@ -598,3 +598,4 @@ int MHI_AC_Ctrl_Core::loop(uint max_time_ms) {
   }
   return call_counter;
 }
+

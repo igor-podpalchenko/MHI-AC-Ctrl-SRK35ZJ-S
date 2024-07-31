@@ -5,8 +5,8 @@
 
 #define VERSION "2.8"
 
-#define WIFI_SSID ""
-#define WIFI_PASSWORD ""
+#define WIFI_SSID "Whitney"
+#define WIFI_PASSWORD "FBI-1213"
 #define HOSTNAME "MHI-AC-Ctrl"
 
 #define WiFI_SEARCHStrongestAP true                 // when false then the first WiFi access point with matching SSID found is used.
@@ -14,10 +14,10 @@
                                                     
 #define WiFI_SEARCH_FOR_STRONGER_AP_INTERVALL 12    // WiFi network re-scan interval in minutes with alternate to +5dB stronger signal if detected
 
-#define MQTT_SERVER "192.168.178.111"               // broker name or IP address of the broker
+#define MQTT_SERVER "192.168.1.10"                 // broker name or IP address of the broker
 #define MQTT_PORT 1883                              // port number used by the broker
-#define MQTT_USER ""                                // if authentication is not used, leave it empty
-#define MQTT_PASSWORD ""                            // if authentication is not used, leave it empty
+#define MQTT_USER "fake-user"                           // if authentication is not used, leave it empty
+#define MQTT_PASSWORD "fake-password"                      // if authentication is not used, leave it empty
 #define MQTT_PREFIX HOSTNAME "/"                    // basic prefix used for publishing AC data (e.g. for status),
                                                     // replace "/" by e.g. "/Living-Room/" when you have multiple ACs
 #define MQTT_SET_PREFIX MQTT_PREFIX "set/"          // prefix for subscribing set commands, must end with a "/"
@@ -37,7 +37,7 @@
 #define ROOM_TEMP_MQTT_SET_TIMEOUT  40              // time in seconds, after this time w/o receiving a valid room temperature
                                                     // via MQTT fallback to IU temperature sensor value
 
-//#define POWERON_WHEN_CHANGING_MODE true           // uncomment it to switch on the AC when the mode (heat, cool, dry etc.) is changed
+#define POWERON_WHEN_CHANGING_MODE true             // uncomment it to switch on the AC when the mode (heat, cool, dry etc.) is changed
                                                     // used e.g. for home assistant support
 
 #define TROOM_FILTER_LIMIT 0.25                     // Defines from which Troom delta value a new Troom value is pubslised. Resolution 0.25°C.
@@ -56,7 +56,7 @@
 // *** The configuration ends here ***
 
 #include <ESP8266WiFi.h>        // https://github.com/esp8266/Arduino/tree/master/libraries/ESP8266WiFi
-#include <PubSubClient.h>       // https://github.com/knolleary/pubsubclient
+#include <PubSubClient.h>       // https://github.com/knolleary/pubsubclient (USE ONLY 2.7 version)
 #include <ArduinoOTA.h>         // https://github.com/esp8266/Arduino/tree/master/libraries/ArduinoOTA
 
 #if TEMP_MEASURE_PERIOD > 0
@@ -96,3 +96,4 @@ byte getDs18x20Temperature(int temp_hysterese);               // read the temper
 #define MQTT_CONNECT_OK 0
 
 #define DS18X20_NOT_CONNECTED 1
+
